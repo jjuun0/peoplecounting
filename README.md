@@ -1,4 +1,4 @@
-# peoplecounting
+
 사람의 인원수를 측정하여 인원 제한수를 기준으로 LED를 ON / OFF 제어(미구현)    
 또한 어플에서 강제로 ON/OFF 할 수 있는 기능을 추가해 예기치 않은 상황에도 제어가능
 
@@ -8,6 +8,7 @@
 실내 공간 : 인원의 수를 제한하는 공간이 있다면 그 공간안의 인원수를 파악  
 
 # 구조
+![peoplecounting](https://user-images.githubusercontent.com/66052461/101978799-0f58b000-3c9b-11eb-98b4-82518029b379.png)
 
 
 # 아두이노 회로
@@ -36,14 +37,29 @@ Entrance, Exit 테이블에 입구, 출구 아두이노에서 측정한 거리�
 4. [디바이스 제어] 만약 담당자가 LED를 강제로 제어하고 싶은경우(Break Time, Lunch Time,,등등) 어플에서 강제로 LED 상태 제어가 가능합니다.  
 또한 인원 제한수를 어플에서 값을 변경이 가능합니다.
 
-# Lambda Function
-1. DBsaveFunction
-아두이노가 초음파센서를 측정할때마다 호출이 된다.
-측정한 거리가 15미만일때 즉, 사람이 들어왔을때 Entrance, EntranceCurrent 테이블에 저장을 한다. 
-Entrance 테이블은 time을 파티션키로 정렬해 사람이 들어올때마다 로그값을 저장한다.
-EntranceCurrent 테이블은 deviceId을 파티션키로 정렬해 하나의 행만 가지며 가장 최신의 로그값만 저장한다.
-테이블 첨부
+# 람다 함수
+1. DBsaveFunction 
+입구 아두이노의 초음파센서가 측정할때마다 호출이 된다.  
+측정한 거리가 15미만일때 즉, 사람이 들어왔을때 Entrance, EntranceCurrent 테이블에 저장을 한다.   
+Entrance 테이블은 time을 파티션키로 정렬해 사람이 들어올때마다 로그값을 저장한다.  
+EntranceCurrent 테이블은 deviceId을 파티션키로 정렬해 하나의 행만 가지며 가장 최신의 로그값만 저장한다.  
+출구 아두이노도 동일한 방식으로 DB 테이블에 저장이된다.(ExitDBsaveFunction)  
+테이블 첨부  
 
-2. 
+2. LogTableFunction  
+입구 아두이노의 초음파센서가 측정할때마다 호출이 된다.  
+EntranceCurrent와 ExitCurrent의 인원수를 가져와 그 차이를 계산한 값, 현재 인원 수값을 저장한다.  
+테이블 첨부  
 
+3. GetDeviceFunction  
+어플에서 현재 상태를 조회하는 요청을 보내면 이 함수를 통해 device shadow에서 현재 상태를 가져온다.  
+캡쳐 사진 첨부  
+
+4. UpdateDeviceFunction  
+어플에서 변경하고자 하는 값을 인원 제한수, LED값을 바꾸어 요청을 하면 이 함수를 통해 device shadow에 요청한다.  
+캡쳐 사진 첨부  
+
+5. LogDeviceFunction  
+어플에서 로그값을 조회하고자 한다면 이 함수를 통해 DB의 LogTable 테이블을 스캔하여 목록으로 보여준다.  
+ 캡쳐 사진 첨부  
  
