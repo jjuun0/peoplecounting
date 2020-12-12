@@ -44,7 +44,7 @@ Entrance, Exit 테이블에 입구, 출구 아두이노에서 측정한 거리�
 측정한 거리가 15미만일때 즉, 사람이 들어왔을때 Entrance, EntranceCurrent 테이블에 저장을 한다.    
 ![Entrance](https://user-images.githubusercontent.com/66052461/101978828-3e6f2180-3c9b-11eb-8444-465ec3deacf5.PNG)  
 Entrance 테이블은 time을 파티션키로 정렬해 사람이 들어올때마다 로그값을 저장한다.  
-![EntranceCurrent](https://user-images.githubusercontent.com/66052461/101978832-4929b680-3c9b-11eb-8b82-9f0d6baccc6f.PNG)
+![EntranceCurrent](https://user-images.githubusercontent.com/66052461/101978832-4929b680-3c9b-11eb-8b82-9f0d6baccc6f.PNG)  
 EntranceCurrent 테이블은 deviceId을 파티션키로 정렬해 하나의 행만 가지며 가장 최신의 로그값만 저장한다.  
 출구 아두이노도 동일한 방식으로 DB 테이블에 저장이된다.(ExitDBsaveFunction)  
 
