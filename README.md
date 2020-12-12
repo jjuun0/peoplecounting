@@ -70,6 +70,8 @@ EntranceCurrent와 ExitCurrent의 인원수를 가져와 그 차이를 계산한
 
 5. LogDeviceFunction  
 어플에서 로그값을 조회하고자 한다면 이 함수를 통해 DB의 LogTable 테이블을 스캔하여 목록으로 보여준다.  
+![로그조회](https://user-images.githubusercontent.com/66052461/101984407-a7b75a80-3cc4-11eb-8e1c-cb794ac1f621.PNG)  
+
 
 
  
