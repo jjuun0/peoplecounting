@@ -55,11 +55,17 @@ EntranceCurrent와 ExitCurrent의 인원수를 가져와 그 차이를 계산한
 
 3. GetDeviceFunction  
 어플에서 현재 상태를 조회하는 요청을 보내면 이 함수를 통해 device shadow에서 현재 상태를 가져온다.  
-캡쳐 사진 첨부  
+![조회전](https://user-images.githubusercontent.com/66052461/101981820-e217fc00-3cb2-11eb-8a57-780c791ab68d.PNG)  
+조회 전  
+![조회후](https://user-images.githubusercontent.com/66052461/101981824-e9d7a080-3cb2-11eb-96eb-b24c5b4e9348.PNG)  
+조회 후
 
 4. UpdateDeviceFunction  
 어플에서 변경하고자 하는 값을 인원 제한수, LED값을 바꾸어 요청을 하면 이 함수를 통해 device shadow에 요청한다.  
-캡쳐 사진 첨부  
+![변경전](https://user-images.githubusercontent.com/66052461/101981795-b6951180-3cb2-11eb-97c0-3fe431ca8bb8.PNG)  
+변경 전  
+![변경후](https://user-images.githubusercontent.com/66052461/101981815-d75d6700-3cb2-11eb-8b45-1fc621459c1f.PNG)  
+변경 후
 
 5. LogDeviceFunction  
 어플에서 로그값을 조회하고자 한다면 이 함수를 통해 DB의 LogTable 테이블을 스캔하여 목록으로 보여준다.  
