@@ -8,6 +8,7 @@
 실내 공간 : 인원의 수를 제한하는 공간이 있다면 그 공간안의 인원수를 파악  
 
 # 구조
+![peoplecounting](https://user-images.githubusercontent.com/66052461/101978455-7163e600-3c98-11eb-9db5-c6ba1359b1ae.png)
 
 
 # 아두이노 회로
@@ -20,7 +21,7 @@ Arduino MKRWiFi1010 2개, 초음파센서(HC-SR04) 2개, LED 1개를 사용했�
 아두이노 코드내에 arduino.secrets.h에서 본인의 디바이스와 환경에 맞게 설정 필요함  
 (입구 아두이노 - aws_iot_entrance.ino, 출구 아두이노 - aws_iot_exit.ino 실행)
 
-2. 초음파센서가 측정한 거리가 15 미만일때 AWS DynamoDB에 저장이 된다.  
+2. 초음파센서가 5초마다 측정하는데 거리가 15 미만일때 AWS DynamoDB에 저장이 된다. (미리 테이블 6개와 iot 규칙을 만들면 lambda function을 호출해 db에 저장이 된다.)
 Entrance, Exit 테이블에 입구, 출구 아두이노에서 측정한 거리가 따로 저장(time값도 동시에 저장이 됩니다.)  
 이때 LogTable 테이블에 현재 인원수도 저장해줍니다.(EntranceCurrent와 ExitCurrent 테이블의 인원수 값을 가져와 계산을 통하여 현재 인원수를 측정)
   * DB 테이블 
@@ -35,4 +36,12 @@ Entrance, Exit 테이블에 입구, 출구 아두이노에서 측정한 거리�
 
 4. [디바이스 제어] 만약 담당자가 LED를 강제로 제어하고 싶은경우(Break Time, Lunch Time,,등등) 어플에서 강제로 LED 상태 제어가 가능합니다.  
 또한 인원 제한수를 어플에서 값을 변경이 가능합니다.
+
+# Lambda Function
+1. DBsaveFunction
+아두이노가 초음파센서를 측정할때마다 호출이 된다.
+측정한 거리가 15미만일때 즉, 사람이 들어왔을때 Entrance, EntranceCurrent 테이블에 저장을 한다. 
+Entrance 테이블은 time을 파티션키로 정렬해 사람이 들어올때마다 로그값을 저장한다.
+EntranceCurrent 테이블은 deviceId을 파티션키로 정렬해 하나의 행만 가지며 가장 최신의 로그값만 저장한다.
+
  
