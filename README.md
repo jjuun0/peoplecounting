@@ -13,7 +13,8 @@
 
 
 # 아두이노 회로
-사진 첨부
+![회로도_bb](https://user-images.githubusercontent.com/66052461/101984141-d03e5500-3cc2-11eb-84db-96dace7f983c.png)  
+
 Arduino MKRWiFi1010 2개, 초음파센서(HC-SR04) 2개, LED 1개를 사용했습니다.  
 (아두이노가 두개인데 하나는 입구, 다른 하나는 출구쪽 아두이노입니다.)
 
@@ -69,5 +70,6 @@ EntranceCurrent와 ExitCurrent의 인원수를 가져와 그 차이를 계산한
 
 5. LogDeviceFunction  
 어플에서 로그값을 조회하고자 한다면 이 함수를 통해 DB의 LogTable 테이블을 스캔하여 목록으로 보여준다.  
- 캡쳐 사진 첨부  
+![로그 조회](https://user-images.githubusercontent.com/66052461/101984138-c9174700-3cc2-11eb-91c4-82ed7888de63.PNG)  
+
  
