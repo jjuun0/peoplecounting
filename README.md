@@ -15,7 +15,8 @@
 
 
 # 아두이노 회로
-![회로도_bb](https://user-images.githubusercontent.com/66052461/101984141-d03e5500-3cc2-11eb-84db-96dace7f983c.png)  
+![회로도_bb](https://user-images.githubusercontent.com/66052461/101984141-d03e5500-3cc2-11eb-84db-96dace7f983c.png)   
+입구 아두이노의 회로도입니다.출구 아두이노도 동일하고 led만 없습니다.
 
 Arduino MKRWiFi1010 2개, 초음파센서(HC-SR04) 2개, LED 1개를 사용했습니다.  
 (아두이노가 두개인데 하나는 입구, 다른 하나는 출구쪽 아두이노입니다.)  
