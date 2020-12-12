@@ -43,5 +43,8 @@ Entrance, Exit 테이블에 입구, 출구 아두이노에서 측정한 거리�
 측정한 거리가 15미만일때 즉, 사람이 들어왔을때 Entrance, EntranceCurrent 테이블에 저장을 한다. 
 Entrance 테이블은 time을 파티션키로 정렬해 사람이 들어올때마다 로그값을 저장한다.
 EntranceCurrent 테이블은 deviceId을 파티션키로 정렬해 하나의 행만 가지며 가장 최신의 로그값만 저장한다.
+테이블 첨부
+
+2. 
 
  
