@@ -51,7 +51,7 @@ EntranceCurrent 테이블은 deviceId을 파티션키로 정렬해 하나의 행
 2. LogTableFunction  
 입구 아두이노의 초음파센서가 측정할때마다 호출이 된다.  
 EntranceCurrent와 ExitCurrent의 인원수를 가져와 그 차이를 계산한 값, 현재 인원 수값을 저장한다.  
-테이블 첨부  
+![LogTable](https://user-images.githubusercontent.com/66052461/101979339-9d369a00-3c9f-11eb-8f10-d628b5e82e0b.PNG)  
 
 3. GetDeviceFunction  
 어플에서 현재 상태를 조회하는 요청을 보내면 이 함수를 통해 device shadow에서 현재 상태를 가져온다.  
