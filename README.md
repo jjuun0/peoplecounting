@@ -8,7 +8,6 @@
 실내 공간 : 인원의 수를 제한하는 공간이 있다면 그 공간안의 인원수를 파악  
 
 # 구조
-![peoplecounting](https://user-images.githubusercontent.com/66052461/101978455-7163e600-3c98-11eb-9db5-c6ba1359b1ae.png)
 
 
 # 아두이노 회로
