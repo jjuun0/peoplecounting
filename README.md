@@ -8,7 +8,7 @@
 실내 공간 : 인원의 수를 제한하는 공간이 있다면 그 공간안의 인원수를 파악  
 
 # 구조
-![peoplecounting](https://user-images.githubusercontent.com/66052461/101978799-0f58b000-3c9b-11eb-98b4-82518029b379.png)
+
 
 
 # 아두이노 회로
@@ -38,7 +38,7 @@ Entrance, Exit 테이블에 입구, 출구 아두이노에서 측정한 거리�
 또한 인원 제한수를 어플에서 값을 변경이 가능합니다.
 
 # 람다 함수
-1. DBsaveFunction 
+1. DBsaveFunction, ExitDBsaveFunction
 입구 아두이노의 초음파센서가 측정할때마다 호출이 된다.  
 측정한 거리가 15미만일때 즉, 사람이 들어왔을때 Entrance, EntranceCurrent 테이블에 저장을 한다.   
 Entrance 테이블은 time을 파티션키로 정렬해 사람이 들어올때마다 로그값을 저장한다.  
